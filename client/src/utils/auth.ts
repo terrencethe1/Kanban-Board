@@ -18,14 +18,27 @@ class AuthService {
   
   isTokenExpired(token: string) {
 
-  }
   
-  isTokenExpired(token: string) {
+  
+ 
     
     // TODO: return a value that indicates if the token is expired
+    try {
+      const decoded = jwtDecode<JwtPayload>(token);
+      if (decoded.exp) {
+        const expirationTime = decoded.exp * 1000;
+        return Date.now() > expirationTime;
+      }
+      return false;
+    } catch (error) {
+      return true;
+    }
   }
 
-  getToken(): string {
+  getToken(): string | null {
+
+
+
     // TODO: return the token
   }
 
