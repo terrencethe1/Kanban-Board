@@ -50,14 +50,17 @@ class AuthService {
   }
 
 
-    // TODO: set the token to localStorage
     // TODO: redirect to the home page
   }
 
   logout() {
-    // TODO: remove the token from localStorage
+  
+  // TODO: remove the token from localStorage
     // TODO: redirect to the login page
+    localStorage.removeItem('id_token');
+    window.location.assign('/login');
   }
 }
 
 export default new AuthService();
+
