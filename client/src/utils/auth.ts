@@ -40,9 +40,16 @@ class AuthService {
 
 
     // TODO: return the token
+    return localStorage.getItem('id_token');
   }
 
   login(idToken: string) {
+    // TODO: set the token to localStorage
+    localStorage.setItem('id_token', idToken);
+    window.location.assign('/');
+  }
+
+
     // TODO: set the token to localStorage
     // TODO: redirect to the home page
   }
